@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>達克瓦茲客服系統</title>
+</head>
+<body>
+    <h1>達克瓦茲客服系統</h1>
+    <input type="text" id="query" placeholder="Enter Chinese word">
+    <button onclick="search()">Search</button>
+    <p id="result"></p>
+
+    <script>
+        function search() {
+            var query = document.getElementById('query').value;
+            var url = 'https://script.google.com/macros/s/AKfycbzVZah6_dYBwKqMM9250ashOjpj55wEGlnNc4oK84HtO4lRz0guc7iI4M7txuQPV-jQ/exec?q=' + encodeURIComponent(query);
+
+            fetch(url)
+                .then(response => response.text())
+                .then(text => document.getElementById('result').innerText = text)
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
